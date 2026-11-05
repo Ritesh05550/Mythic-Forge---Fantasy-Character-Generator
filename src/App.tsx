@@ -22,12 +22,13 @@ import { PartyRoster } from './components/PartyRoster';
 import { ClassCodex } from './components/ClassCodex';
 import { MusicPlayer } from './components/MusicPlayer';
 import { EnchantedRealmBackground } from './components/EnchantedRealmBackground';
+import { HorrorGamePortal } from './components/game/HorrorGamePortal';
 import { Users } from 'lucide-react';
 
 const STORAGE_KEY = 'mythic_forge_roster_v1';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'forge' | 'roster' | 'classes'>('forge');
+  const [activeTab, setActiveTab] = useState<'forge' | 'roster' | 'classes' | 'game'>('forge');
   const [isMuted, setIsMuted] = useState(false);
   const [isAnimationActive, setIsAnimationActive] = useState(true);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -333,6 +334,14 @@ export default function App() {
               />
             </div>
 
+            {/* Interactive Horror Adventure Game Portal Section */}
+            <HorrorGamePortal
+              activeCharacter={currentCharacter}
+              roster={roster}
+              isMuted={isMuted}
+              onSelectCharacter={handleSelectCharacter}
+            />
+
             {/* Quick Mini Party Strip if roster has heroes */}
             {roster.length > 1 && (
               <div className="w-full max-w-4xl mt-6 pt-6 border-t border-slate-900">
@@ -377,6 +386,17 @@ export default function App() {
             onRemoveCharacter={handleRemoveFromRoster}
             onClearRoster={handleClearRoster}
           />
+        )}
+
+        {activeTab === 'game' && (
+          <div className="w-full flex flex-col items-center gap-6">
+            <HorrorGamePortal
+              activeCharacter={currentCharacter}
+              roster={roster}
+              isMuted={isMuted}
+              onSelectCharacter={handleSelectCharacter}
+            />
+          </div>
         )}
 
         {activeTab === 'classes' && (

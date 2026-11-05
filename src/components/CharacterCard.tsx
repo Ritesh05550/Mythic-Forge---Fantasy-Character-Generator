@@ -336,7 +336,7 @@ Lore: ${character.backstoryHook}
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 font-mono">
               Core Attributes
             </h3>
-            <div className="grid grid-cols-6 gap-2">
+            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
               {statEntries.map(({ label, key, name }) => {
                 const score = character.stats[key];
                 const mod = getStatModifier(score);
