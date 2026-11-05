@@ -1,0 +1,7 @@
+{
+  "name": "Mythic Forge - Fantasy Character Generator",
+  "description": "Interactive fantasy character generator creating rich RPG characters with names, classes, attributes, lore, and artwork.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
